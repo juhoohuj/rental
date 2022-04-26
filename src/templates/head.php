@@ -35,10 +35,10 @@
             </li>
             <li class="nav-item">
             <?php 
-                if(isset($_SESSION["username"])){
-                    echo '<a class="nav-link bg-danger" href="logout.php">Log out</a>';
+                if(isset($_SESSION["FirstName"])){
+                    echo '<a class="nav-link bg-danger" href="logout.php">Asiakas ulos</a>';
                 }else{
-                    echo '<a class="nav-link bg-success" href="login.php">Log in</a>';
+                    echo '<a class="nav-link bg-success" href="login.php">Asiakas sisään</a>';
                 }
             ?>
             </li>
