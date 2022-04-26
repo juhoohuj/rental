@@ -25,7 +25,7 @@
             <a class="nav-link" href="people.php">Elokuvat</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="person.php">Lisää elokuva</a>
+            <a class="nav-link" href="addMovie.php">Lisää elokuva</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="worktime.php">Lisää vuokraus</a>
