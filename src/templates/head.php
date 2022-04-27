@@ -28,7 +28,7 @@
             <a class="nav-link" href="addMovie.php">Lisää elokuva</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="worktime.php">Lisää vuokraus</a>
+            <a class="nav-link" href="movieRental.php">Lisää vuokraus</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="worklist.php">Vuokrahistoria</a>
