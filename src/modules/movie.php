@@ -1,16 +1,18 @@
 <?php
 
-function getPeople(){
+function getMovies(){
     require_once MODULES_DIR.'db.php';
 
     try{
-        $pdo = getPdoConnection();
+        $pdo = openDB();
         // Create SQL query to get all rows from a table
-        $sql = "SELECT * FROM person";
+        $sql = "SELECT *
+        FROM movie
+        ORDER BY name;";
         // Execute the query
-        $people = $pdo->query($sql);
+        $movies = $pdo->query($sql);
 
-        return $people->fetchAll();
+        return $movies->fetchAll();
     }catch(PDOException $e){
         throw $e;
     }
@@ -30,7 +32,7 @@ function addPerson($name, $length, $language, $genre){
     }
     
     try{
-        $pdo = getPdoConnection();
+        $pdo = openDB();
         //Suoritetaan parametrien lisääminen tietokantaan.
         $sql = "INSERT INTO movie (name, Length, Language, Genre) VALUES (?, ?, ?, ?)";
         $statement = $pdo->prepare($sql);
@@ -46,8 +48,7 @@ function addPerson($name, $length, $language, $genre){
         throw $e;
     }
 }
-
-function deletePerson($id){
+function deleteMovie($id){
     require_once MODULES_DIR.'db.php'; // DB connection
     
     //Tarkistetaan onko muttujia asetettu
@@ -56,20 +57,14 @@ function deletePerson($id){
     }
     
     try{
-        $pdo = getPdoConnection();
+        $pdo = openDB();
         // Start transaction
         $pdo->beginTransaction();
-        // Delete from worktime table
-        $sql = "DELETE FROM worktime WHERE person_id = ?";
+        // Delete from movie table
+        $sql = "DELETE FROM movie WHERE MovieID = ?";
         $statement = $pdo->prepare($sql);
         $statement->bindParam(1, $id);        
         $statement->execute();
-        // Delete from person table
-        $sql = "DELETE FROM person WHERE ID = ?";
-        $statement = $pdo->prepare($sql);
-        $statement->bindParam(1, $id);        
-        $statement->execute();
-        // Commit transaction
         $pdo->commit();
     }catch(PDOException $e){
         // Rollback transaction on error

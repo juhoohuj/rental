@@ -22,7 +22,7 @@
             <a class="nav-link active" aria-current="page" href="./">Etusivu</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="people.php">Elokuvat</a>
+            <a class="nav-link" href="movies.php">Elokuvat</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="addMovie.php">Lisää elokuva</a>
