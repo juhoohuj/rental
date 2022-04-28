@@ -31,7 +31,7 @@
             <a class="nav-link" href="movieRental.php">Lisää vuokraus</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="worklist.php">Vuokrahistoria</a>
+                <a class="nav-link" href="rentHistory.php">Vuokrahistoria</a>
             </li>
             <li class="nav-item">
             <?php 
