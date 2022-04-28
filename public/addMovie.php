@@ -12,7 +12,7 @@ include MODULES_DIR.'movie.php';
     if(isset($name)){
         try{
             addMovie($name, $length, $language, $genre);
-            echo '<div class="alert alert-success" role="alert">Elokuva lisätty</div>';
+            echo '<div class="alert alert-success" role="alert">Elokuva '.$name.' lisätty tietokantaan</div>';
         }catch(Exception $e){
             echo '<div class="alert alert-danger" role="alert">'.$e->getMessage().'</div>';
         }

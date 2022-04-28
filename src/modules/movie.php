@@ -33,6 +33,14 @@ function addMovie($name, $length, $language, $genre){
     
     try{
         $pdo = openDB();
+        //Tarkistetaan löytyykö elokuva jo tietokannasta.
+        $sql = "select name from movie where name = ? LIMIT 1";
+        $statement = $pdo->prepare($sql);
+        $statement->bindParam(1, $name);
+        $statement->execute();
+        $row = $statement->fetch();
+
+        if (!$row) {
         //Suoritetaan parametrien lisääminen tietokantaan.
         $sql = "INSERT INTO movie (name, Length, Language, Genre) VALUES (?, ?, ?, ?)";
         $statement = $pdo->prepare($sql);
@@ -42,8 +50,10 @@ function addMovie($name, $length, $language, $genre){
         $statement->bindParam(4, $genre);
     
         $statement->execute();
-    
-        echo "Elokuva: ".$name." lisätty tietokantaan"; 
+        } else {
+            throw new Exception("$name löytyy jo tietokannasta!");
+        }
+
     }catch(PDOException $e){
         throw $e;
     }
