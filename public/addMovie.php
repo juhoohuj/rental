@@ -11,7 +11,7 @@ include MODULES_DIR.'movie.php';
 
     if(isset($name)){
         try{
-            addPerson($name, $length, $language, $genre);
+            addMovie($name, $length, $language, $genre);
             echo '<div class="alert alert-success" role="alert">Elokuva lisätty</div>';
         }catch(Exception $e){
             echo '<div class="alert alert-danger" role="alert">'.$e->getMessage().'</div>';
@@ -20,7 +20,6 @@ include MODULES_DIR.'movie.php';
     }
 
 ?>
-
     <form action="addMovie.php" method="post">
         <label for="name">Nimi:</label><br>
         <input type="text" name="name" id="name"><br>
@@ -32,5 +31,5 @@ include MODULES_DIR.'movie.php';
         <input type="text" name="genre" id="genre"><br>
         <input type="submit" class="btn btn-primary" value="Lisää elokuva">
     </form>
-
+    
 <?php   include TEMPLATES_DIR.'foot.php'; ?>

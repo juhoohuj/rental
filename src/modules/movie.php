@@ -18,7 +18,7 @@ function getMovies(){
     }
 }
 
-function addPerson($name, $length, $language, $genre){
+function addMovie($name, $length, $language, $genre){
     require_once MODULES_DIR.'db.php'; // DB connection
     
     //Tarkistetaan onko muttujia asetettu
