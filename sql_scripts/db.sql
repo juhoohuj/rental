@@ -1,6 +1,6 @@
 CREATE TABLE MOVIE (
     MovieID INT AUTO_INCREMENT,
-    Name varchar(255),
+    MovieName varchar(255),
     Length time,
     Language varchar(255),
     Genre varchar(255),
