@@ -1,5 +1,6 @@
 <?php
 
+// A function to fetch data from SQL tables and connect them with inner join method.
 function getRents(){
     require_once MODULES_DIR.'db.php';
 
