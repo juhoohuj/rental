@@ -19,7 +19,7 @@ $movie = getMovies();
 // Print movies in a list
 echo "<ul>";
 foreach($movie as $m){
-    echo "<li>".$m["Name"]." ".$m["Length"]." ".$m["Language"]." ".$m["Genre"]. '<a href="movies.php?id=' . $m["MovieID"] . '" class="btn btn-primary">Delete</a> </li>';
+    echo "<li>".$m["MovieName"]." ".$m["Length"]." ".$m["Language"]." ".$m["Genre"]. '<a href="movies.php?id=' . $m["MovieID"] . '" class="btn btn-primary">Delete</a> </li>';
 }
 echo "</ul>";
 

@@ -8,7 +8,7 @@ function getMovies(){
         // Create SQL query to get all rows from a table
         $sql = "SELECT *
         FROM movie
-        ORDER BY name;";
+        ORDER BY MovieName;";
         // Execute the query
         $movies = $pdo->query($sql);
 
@@ -34,7 +34,7 @@ function addMovie($name, $length, $language, $genre){
     try{
         $pdo = openDB();
         //Tarkistetaan löytyykö elokuva jo tietokannasta.
-        $sql = "select name from movie where name = ? LIMIT 1";
+        $sql = "select MovieName from movie where MovieName = ? LIMIT 1";
         $statement = $pdo->prepare($sql);
         $statement->bindParam(1, $name);
         $statement->execute();
@@ -42,7 +42,7 @@ function addMovie($name, $length, $language, $genre){
 
         if (!$row) {
         //Suoritetaan parametrien lisääminen tietokantaan.
-        $sql = "INSERT INTO movie (name, Length, Language, Genre) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO movie (MovieName, Length, Language, Genre) VALUES (?, ?, ?, ?)";
         $statement = $pdo->prepare($sql);
         $statement->bindParam(1, $name);
         $statement->bindParam(2, $length);
@@ -71,7 +71,7 @@ function deleteMovie($id){
         // Start transaction
         $pdo->beginTransaction();
         // Delete from movie table
-        $sql = "DELETE FROM movie WHERE MovieID = ?";
+        $sql = "DELETE FROM MovieName WHERE MovieID = ?";
         $statement = $pdo->prepare($sql);
         $statement->bindParam(1, $id);        
         $statement->execute();
