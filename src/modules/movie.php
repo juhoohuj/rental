@@ -71,7 +71,7 @@ function deleteMovie($id){
         // Start transaction
         $pdo->beginTransaction();
         // Delete from movie table
-        $sql = "DELETE FROM MovieName WHERE MovieID = ?";
+        $sql = "DELETE FROM movie WHERE MovieID = ?";
         $statement = $pdo->prepare($sql);
         $statement->bindParam(1, $id);        
         $statement->execute();
