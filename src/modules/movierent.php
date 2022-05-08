@@ -5,16 +5,13 @@ function movieDropdown($selectedMovie = -1){
 
     $pdo = openDB();
     $sql = "SELECT MovieID, MovieName FROM movie";
-    // Execute the query
     $movies = $pdo->query($sql);   
 
-    // Check if any was returned and create 
     if ( $movies->rowCount() > 0 ){
 
         echo '<label for="movie">Valitse elokuva:</label>
         <select name="MovieID" id="MovieID">';
 
-        // Loop till there are no more rows
         foreach($movies as $row){
             echo'<option value="'. $row["MovieID"] .'"'.($row["MovieID"] == $selectedMovie ? ' selected' : ''). '>' . $row["MovieName"].'</option>';
         }
@@ -32,7 +29,7 @@ function addMovieRent($CustomerID, $MovieID, $startTime, $endTime) {
     $CustomerID = $_SESSION["CustomerID"];
     
     if( empty($MovieID) || empty($startTime) || empty($endTime) ){
-        throw new Exception("Cannot set empty values!");
+        throw new Exception("Täytä tyhjät arvot");
     }
 
     try{
