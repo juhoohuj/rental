@@ -1,7 +1,23 @@
 <?php
+//require 'config.php';
+
+
 function openDB() {
-    $db = new PDO('mysql:host=localhost;dbname=rental;charset=utf8','root','');
-    $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+    $init = parse_ini_file(BASE_DIR."conf.ini");
+    $host = $init["host"];
+    $db = $init["db"];
+    $user = $init["username"];
+    $password = $init["pw"];
+
+    $dsn = "mysql:host=$host;dbname=$db;charset=UTF8";
+
+    try {
+        $db = new PDO($dsn, $user, $password);
+        //echo "Connected!";
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
     return $db;
 }
 

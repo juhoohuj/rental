@@ -6,9 +6,9 @@ function getRents(){
 
     try{
         $pdo = openDB();
-        $sql = "SELECT customer.CustomerID, FirstName, SurName, movie.MovieID, MovieName, RentID, startDate, endDate
-        FROM customer, movie, rent
-        WHERE customer.CustomerID = rent.CustomerID && movie.MovieID = rent.MovieID";
+        $sql = "SELECT CUSTOMER.CustomerID, FirstName, SurName, MOVIE.MovieID, MovieName, RentID, startDate, endDate
+        FROM CUSTOMER, MOVIE, RENT
+        WHERE CUSTOMER.CustomerID = RENT.CustomerID && MOVIE.MovieID = RENT.MovieID";
         $rental = $pdo->query($sql);
 
         return $rental->fetchAll();

@@ -4,7 +4,7 @@ function movieDropdown($selectedMovie = -1){
     require_once MODULES_DIR.'db.php';
 
     $pdo = openDB();
-    $sql = "SELECT MovieID, MovieName FROM movie";
+    $sql = "SELECT MovieID, MovieName FROM MOVIE";
     $movies = $pdo->query($sql);   
 
     if ( $movies->rowCount() > 0 ){
@@ -34,7 +34,7 @@ function addMovieRent($CustomerID, $MovieID, $startTime, $endTime) {
 
     try{
         $pdo = openDB();
-        $sql = "INSERT INTO rent (CustomerID, MovieID, startDate, endDate) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO RENT (CustomerID, MovieID, startDate, endDate) VALUES (?, ?, ?, ?)";
         $statement = $pdo->prepare($sql);
         $statement->bindParam(1, $CustomerID);
         $statement->bindParam(2, $MovieID);

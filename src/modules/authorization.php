@@ -74,7 +74,7 @@ function login($FirstName, $SurName)
         $_SESSION["SurName"] = $row["SurName"];
         $_SESSION["CustomerID"] = $row["CustomerID"];
 
-        header("Location: ../../../rental/public/");
+        header("Location: index.php");
 
 
 
